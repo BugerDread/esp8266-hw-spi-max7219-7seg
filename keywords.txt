@@ -12,13 +12,13 @@ BgrMax7seg	KEYWORD1
 # Methods and Functions (KEYWORD2)
 #######################################
 
-clear	KEYWORD2
+clear		KEYWORD2
 setBright	KEYWORD2
-setDigitLimit	KEYWORD2
-on	KEYWORD2
-off	KEYWORD2
-printDigit	KEYWORD2
-write	KEYWORD2
+init		KEYWORD2
+on			KEYWORD2
+off			KEYWORD2
+print		KEYWORD2
+write		KEYWORD2
 
 #######################################
 # Constants (LITERAL1)
