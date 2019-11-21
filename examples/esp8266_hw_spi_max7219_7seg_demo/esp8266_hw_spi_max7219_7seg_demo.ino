@@ -1,6 +1,6 @@
 
 /* Include Library */
-#include <esp8266-hw-spi-max7219-7seg.h>
+#include <esp8266_hw_spi_max7219_7seg.h>
 
 // configuration
 #define SPI_SPEED             8000000 //SPI@8MHZ

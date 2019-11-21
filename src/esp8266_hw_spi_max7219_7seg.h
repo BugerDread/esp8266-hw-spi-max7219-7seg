@@ -1,5 +1,5 @@
-#ifndef esp8266-hw-spi-max7219-7seg_h
-#define esp8266-hw-spi-max7219-7seg_h
+#ifndef esp8266_hw_spi_max7219_7seg_h
+#define esp8266_hw_spi_max7219_7seg_h
 
 #if (ARDUINO >= 100)
 #include <Arduino.h>
