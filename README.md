@@ -6,11 +6,11 @@ Since [commit 3124929f5ad056c64b6a8e815474faaf1db048b1](https://github.com/Buger
 
 You need to change the
 ```
-#include&nbsp<esp8266-hw-spi-max7219-7seg.h>
+#include <esp8266-hw-spi-max7219-7seg.h>
 ```
 line to 
 ```
-#include&nbsp<esp8266_hw_spi_max7219_7seg.h>
+#include <esp8266_hw_spi_max7219_7seg.h>
 ```
 in your project (.ino file) if you can't compile it after update of this library because of 
 ```
