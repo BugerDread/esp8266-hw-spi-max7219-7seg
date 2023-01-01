@@ -14,21 +14,23 @@
 BgrMax7seg::BgrMax7seg(uint32_t spiFreq, int csPin, int dispAmount) {
 	CS_PIN = csPin;
 	_dispAmount = dispAmount;
+	_spiFreq = spiFreq;
 	pinMode(CS_PIN, OUTPUT);
 	digitalWrite(CS_PIN, HIGH);
 	//SPI.begin(6, 10, 7, 5);
 	SPI.begin();
-	SPI.beginTransaction(SPISettings(spiFreq, MSBFIRST, SPI_MODE0));
+//	SPI.beginTransaction(SPISettings(spiFreq, MSBFIRST, SPI_MODE0));
 }
 
 BgrMax7seg::BgrMax7seg(uint32_t spiFreq, int csPin, int dispAmount, int clkPin, int mosiPin, int misoPin) {
 	CS_PIN = csPin;
 	_dispAmount = dispAmount;
+	_spiFreq = spiFreq;
 	pinMode(CS_PIN, OUTPUT);
 	digitalWrite(CS_PIN, HIGH);
 	SPI.begin(clkPin, misoPin, mosiPin, csPin);
 	//SPI.begin();
-	SPI.beginTransaction(SPISettings(spiFreq, MSBFIRST, SPI_MODE0));
+//	SPI.beginTransaction(SPISettings(spiFreq, MSBFIRST, SPI_MODE0));
 }
 
 void BgrMax7seg::setBright(int brightness, int module) { // set brightness 
@@ -68,6 +70,7 @@ void BgrMax7seg::table(byte address, int val, bool point, int module) {
 }
 
 void BgrMax7seg::write(volatile byte address, volatile byte data, volatile int module) { //when module == 0 send data to all of them
+    SPI.beginTransaction(SPISettings(_spiFreq, MSBFIRST, SPI_MODE0));
 	digitalWrite(CS_PIN, LOW);
 	for (int i = _dispAmount; i >= 1; i--) {
 		if ((module == 0) or (module == i)) {
@@ -79,6 +82,7 @@ void BgrMax7seg::write(volatile byte address, volatile byte data, volatile int m
 		}
 	}
 	digitalWrite(CS_PIN, HIGH);
+	SPI.endTransaction();
 }
 
 void BgrMax7seg::print(String figure, int module) {

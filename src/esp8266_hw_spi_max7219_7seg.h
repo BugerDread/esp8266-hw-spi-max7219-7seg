@@ -33,6 +33,7 @@ class BgrMax7seg
 		int CS_PIN;
 		int _digitLimit;
 		int _dispAmount;
+		uint32_t _spiFreq;
 		void table(byte address, int val, bool point, int module);	
 	public:
 		BgrMax7seg(uint32_t spiFreq, int csPin, int dispAmount);	//dispAmount = number of connected modules
