@@ -16,7 +16,18 @@ BgrMax7seg::BgrMax7seg(uint32_t spiFreq, int csPin, int dispAmount) {
 	_dispAmount = dispAmount;
 	pinMode(CS_PIN, OUTPUT);
 	digitalWrite(CS_PIN, HIGH);
+	//SPI.begin(6, 10, 7, 5);
 	SPI.begin();
+	SPI.beginTransaction(SPISettings(spiFreq, MSBFIRST, SPI_MODE0));
+}
+
+BgrMax7seg::BgrMax7seg(uint32_t spiFreq, int csPin, int dispAmount, int clkPin, int mosiPin, int misoPin) {
+	CS_PIN = csPin;
+	_dispAmount = dispAmount;
+	pinMode(CS_PIN, OUTPUT);
+	digitalWrite(CS_PIN, HIGH);
+	SPI.begin(clkPin, misoPin, mosiPin, csPin);
+	//SPI.begin();
 	SPI.beginTransaction(SPISettings(spiFreq, MSBFIRST, SPI_MODE0));
 }
 
