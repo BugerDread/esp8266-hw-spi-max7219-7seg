@@ -22,6 +22,7 @@ BgrMax7seg::BgrMax7seg(uint32_t spiFreq, int csPin, int dispAmount) {
 //	SPI.beginTransaction(SPISettings(spiFreq, MSBFIRST, SPI_MODE0));
 }
 
+#ifdef ESP32
 BgrMax7seg::BgrMax7seg(uint32_t spiFreq, int csPin, int dispAmount, int clkPin, int mosiPin, int misoPin) {
 	CS_PIN = csPin;
 	_dispAmount = dispAmount;
@@ -32,6 +33,7 @@ BgrMax7seg::BgrMax7seg(uint32_t spiFreq, int csPin, int dispAmount, int clkPin, 
 	//SPI.begin();
 //	SPI.beginTransaction(SPISettings(spiFreq, MSBFIRST, SPI_MODE0));
 }
+#endif
 
 void BgrMax7seg::setBright(int brightness, int module) { // set brightness 
     if (brightness>=0 && brightness<16)	

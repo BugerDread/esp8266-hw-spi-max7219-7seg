@@ -37,7 +37,9 @@ class BgrMax7seg
 		void table(byte address, int val, bool point, int module);	
 	public:
 		BgrMax7seg(uint32_t spiFreq, int csPin, int dispAmount);	//dispAmount = number of connected modules
+		#ifdef ESP32
 		BgrMax7seg(uint32_t spiFreq, int csPin, int dispAmount, int clkPin, int mosiPin, int misoPin);
+		#endif
 		void setBright(int brightness, int module = 1);
 		void init();
 		void print(String figure, int module = 1);
